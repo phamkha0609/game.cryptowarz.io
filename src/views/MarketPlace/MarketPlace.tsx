@@ -82,32 +82,6 @@ export const MarketPlace = () => {
                 ))}
               </Row>
             </Tabs.TabPane>
-            <Tabs.TabPane tab="HERO" key="hero">
-              <div className="mobile">
-                <Space
-                  style={{
-                    width: "100%",
-                    justifyContent: "flex-end",
-                    marginBottom: "1em",
-                  }}
-                >
-                </Space>
-              </div>
-
-              <Row gutter={12}>
-                {nfts.map((nft: any, idx) => (
-                  <Col key={idx} span={6} xs={24} lg={6}>
-                    <HeroComponent
-                      heroId={nft.hero}
-                      nftId={nft.nft}
-                      hero={nft}
-                      inMarket={false}
-                    />
-                  </Col>
-                ))}
-              </Row>
-            </Tabs.TabPane>
-
             <Tabs.TabPane tab="LAND" key="land">
               <div className="mobile">
                 <Space
@@ -121,7 +95,7 @@ export const MarketPlace = () => {
               </div>
             </Tabs.TabPane>
 
-            <Tabs.TabPane tab="KETHER" key="kether">
+            <Tabs.TabPane tab="KING KETHER" key="kether">
               <div className="mobile">
                 <Space
                   style={{
