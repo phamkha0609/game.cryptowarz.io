@@ -10,8 +10,8 @@ import { useLocation } from "react-router-dom";
 import { getOwnNFTs } from "utils/callContract";
 import box1 from "../../assets/img/b1.svg";
 import "./marketPlace.scss";
-import b1 from "../../assets/img/box/box-1.svg";
-import b2 from "../../assets/img/box/box-2.svg";
+import b1 from "../../assets/img/box/box-1.png";
+import b2 from "../../assets/img/box/box-2.png";
 
 const nftList = [
   {
