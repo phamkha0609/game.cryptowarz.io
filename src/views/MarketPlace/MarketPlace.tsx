@@ -76,7 +76,7 @@ export const MarketPlace = () => {
 
               <Row gutter={[16, 16]}>
                 {nftList.map((e, id) => (
-                  <Col key={id} xl={8} xs={12}>
+                  <Col key={id} xl={8} xs={16}>
                     <CardComponent bg={box1} id={id} sc={e.sc} />
                   </Col>
                 ))}
