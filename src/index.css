@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "banqueb";
+  src: local("banqueb"), url(./fonts/banqueb.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "banquer";
+  src: local("banquer"), url(./fonts/banquer.ttf) format("truetype");
+}
+
+html,
+body {
+  font-family: banquer, serif !important;
+}
+
+body {
+  margin: 0;
+  font-family: banquer, serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,16 @@
+.titleComponent {
+  position: relative;
+
+  .title {
+    font-size: 50px;
+  }
+
+  .subtitle {
+    position: absolute;
+    transform: rotate(-90deg);
+    top: 0;
+    left: -50px;
+
+    font-weight: 400;
+  }
+}

@@ -1,0 +1,44 @@
+* {
+  color: #fff;
+}
+
+#wraper {
+  min-height: 100vh;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.navbar {
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  padding: 1em 0;
+  .logo {
+    font-weight: 800;
+    font-size: 30px;
+  }
+}
+
+.ant-btn-primary {
+  background-color: #2e2e2e !important;
+  border-color: #2e2e2e !important;
+  font-size: 18px;
+
+  svg {
+    fill: #00ffff;
+  }
+}
+
+.ant-drawer-content {
+  background: rgba(0, 0, 0, 0.5) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.25) !important;
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    font-size: 20px !important;
+  }
+}

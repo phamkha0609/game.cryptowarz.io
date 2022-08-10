@@ -1,0 +1,62 @@
+.common-color {
+  color: #47c221;
+}
+
+.rare-color {
+  color: #fff;
+}
+.supper-rare-color {
+  color: #b22410;
+}
+.epic-color {
+  color: #cbc62c;
+}
+.legend-color {
+  color: #51abbb;
+}
+
+.container {
+  max-width: 1440px;
+  width: 100%;
+  padding: 0 2em;
+  margin: auto;
+}
+
+.mobile {
+  display: none;
+}
+
+.circle-btn {
+  background-color: aqua;
+  border-radius: 50px;
+  transition: 0.4s;
+
+  svg {
+    fill: black;
+  }
+
+  &:hover {
+    background-color: rgb(4, 180, 180);
+  }
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: block;
+  }
+}

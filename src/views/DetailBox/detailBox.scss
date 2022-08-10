@@ -1,0 +1,100 @@
+.detail-box {
+  .thumbnail {
+    background-color: green;
+    border-radius: 10px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-bottom: 2em;
+
+    .box-thumbnail {
+      width: 70%;
+      min-width: 200px;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
+  }
+
+  .box-title {
+    background: #d62f74;
+    background: -webkit-radial-gradient(
+      circle,
+      #d62f74 0%,
+      rgba(214, 47, 116, 0) 100%
+    );
+    background: radial-gradient(circle, #d62f74 0%, rgba(214, 47, 116, 0) 100%);
+    color: #fff;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 5px 10px;
+  }
+
+  .box-drop-info {
+    position: relative;
+    padding: 3em;
+    margin-bottom: 2em;
+
+    &::before {
+      content: "";
+      width: 40%;
+      height: 40%;
+      border-radius: 10px 0 0 0;
+      border-top: 2px solid #3d8398;
+      border-left: 2px solid #3d8398;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &::after {
+      content: "";
+      width: 40%;
+      height: 40%;
+      border-radius: 0 0 10px 0;
+      border-right: 2px solid #3d8398;
+      border-bottom: 2px solid #3d8398;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+
+    h2 {
+      color: #fff;
+      margin-bottom: 1em;
+    }
+
+    .drop-item {
+      width: 100%;
+      justify-content: space-between;
+      border-bottom: 2px solid #3d8398;
+      margin-bottom: 1em;
+      padding-bottom: 0.5em;
+
+      .title {
+        font-weight: bold;
+      }
+    }
+  }
+
+  .quantity-input {
+    padding: 0.3em 0;
+    width: 50px;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .mobile-reverse {
+    flex-direction: column-reverse !important;
+  }
+}
