@@ -4,7 +4,7 @@ import { RouteObject } from "react-router-dom";
 // import { AccountPage } from "views/AccountPage/AccountPage";
 import { DetailBox } from "views/DetailBox/DetailBox";
 import { DetailHero } from "views/DetailHero/DetailHero";
-import { Market } from "views/Market/Market";
+import {Stake} from "views/Stake/Stake";
 import { MarketPlace } from "views/MarketPlace/MarketPlace";
 
 interface Route extends RouteObject {
@@ -20,6 +20,12 @@ export const adminRoutes: Route[] = [
     title: "Dashboard",
     path: "/",
     element: <MarketPlace />,
+    index: true,
+  },
+  {
+    title: "Stake",
+    path: "/stake",
+    element: <Stake />,
     index: true,
   },
   // {
