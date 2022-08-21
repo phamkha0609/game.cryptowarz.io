@@ -35,6 +35,8 @@ export const NavbarComponent = () => {
                 <Link style={{ color: "#fff" }} to={"/"}>
                   CRYPTOWARZ
                 </Link>
+                <a href="/" className="desktop" style={{marginLeft: "20px", color: "#dd2288", fontSize: "20px"}}>MINT-NFT</a>
+                <a href="/stake" className="desktop" style={{marginLeft: "20px", color: "#dd2288", fontSize: "20px"}}>STAKING</a>
               </div>
               {/* <Button
                 className="desktop"
@@ -79,6 +81,10 @@ export const NavbarComponent = () => {
             onClick={() => setVisible(false)}
           />
         </Space>
+
+        <a href="/" className="mobile" style={{color: "#dd2288", fontSize: "20px", fontWeight: 'bold'}}>MINT-NFT</a>
+        <a href="/stake" className="mobile" style={{color: "#dd2288", fontSize: "20px", marginBottom: '20px', fontWeight: 'bold'}}>STAKING</a>
+
         <GameButton onClick={handleConnect}>
           {account ? formatAddress(account) : "CONNECT WALLET"}
         </GameButton>
