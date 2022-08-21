@@ -1,6 +1,6 @@
 import { Web3Provider } from "@ethersproject/providers";
 import axios from "axios";
-import { BigNumber } from "ethers";
+import { BigNumber, Contract } from "ethers";
 import {
 	BOX_SALE,
 	HERO,
@@ -156,8 +156,24 @@ export const _getOwnNFTs = async (library: Web3Provider, account: string) => {
 				};
 			})
 		);
-		console.log(lands, kings);
 		return { lands, kings };
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const getNFT = async (contract: Contract, id: any) => {
+	try {
+		const [url, nftClass] = await Promise.all([
+			callContract(contract, "tokenURI", [id]),
+			callContract(contract, "classes", [id]),
+		]);
+		const res = await axios.get(url);
+		return {
+			id,
+			nftClass,
+			...res.data,
+		};
 	} catch (error) {
 		throw error;
 	}

@@ -4,10 +4,17 @@ import { CardComponent } from "components/CardComponent/CardComponent";
 import { HeroComponent } from "components/CardComponent/HeroComponent";
 import { LandComponent } from "components/CardComponent/LandComponent";
 import { Filter } from "components/Filter/Filter";
+import { KING_TYPES, LAND_TYPES } from "configs/constants";
 import useActiveWeb3React from "hooks/useActiveWeb3React";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import { approveTokenSale, buyBox, _getOwnNFTs } from "utils/callContract";
+import {
+	approveTokenSale,
+	buyBox,
+	getNFT,
+	_getOwnNFTs,
+} from "utils/callContract";
+import { getKingNFT, getLandNFT } from "utils/getContract";
 import box1 from "../../assets/img/b1.svg";
 import b1 from "../../assets/img/box/box-1.png";
 import b2 from "../../assets/img/box/box-2.png";
@@ -80,6 +87,7 @@ export const MarketPlace = () => {
 	const tab = urlParams.get("tab");
 	const [isShow, setShow] = useState(false);
 	const [isLoading, setLoading] = useState(true);
+	const [reward, setReward] = useState<any>();
 
 	const [refresh, setRefresh] = useState(false);
 
@@ -93,44 +101,63 @@ export const MarketPlace = () => {
 
 	useEffect(() => {
 		(async () => {
-			if (!account || !library) return;
-			_getOwnNFTs(library, account)
-				.then((res) => {
-					setLands(res.lands);
-					setKings(res.kings);
-					setLoading(false);
-				})
-				.catch((err) => {
-					console.log(err);
-					setLoading(false);
-				});
+			if (!account || !library) {
+				setLoading(false);
+				return;
+			}
+			try {
+				const res = await _getOwnNFTs(library, account);
+				setLands(res.lands);
+				setKings(res.kings);
+				setLoading(false);
+			} catch (error) {
+				console.log(error);
+				setLoading(false);
+			}
 		})();
 	}, [account, library, refresh]);
-
-	// data exp
-	const reward = {
-		name: "KING KETHER",
-		type: "EXAMPLE",
-		property: "EXAMPLE",
-	};
 
 	const handleBuyBox = async (boxId: number) => {
 		if (!account || !library) return alert("Please connect wallet");
 		try {
-			!isLoading && setLoading(true);
+			setLoading(true);
 			await buyBox(library, account, boxId);
-			alert("Buy success");
-			setRefresh((pre) => !pre);
+			// alert("Buy success");
+			if (boxId == 0) {
+				const landNFT = getLandNFT(library, account);
+				landNFT.on("Transfer", async (from, to, tokenId) => {
+					console.log(tokenId);
+					if (to && to.toLowerCase() === account.toLowerCase()) {
+						landNFT.removeAllListeners();
+						const _nft = await getNFT(landNFT, tokenId);
+						setReward({ ..._nft, name: LAND_TYPES[_nft.nftClass] });
+						setLoading(false);
+						setShow(true);
+						setRefresh((pre) => !pre);
+					}
+				});
+			} else {
+				const kingNFT = getKingNFT(library, account);
+				kingNFT.on("Transfer", async (from, to, tokenId) => {
+					if (to && to.toLowerCase() === account.toLowerCase()) {
+						kingNFT.removeAllListeners();
+						const _nft = await getNFT(kingNFT, tokenId);
+						setReward({ ..._nft, name: KING_TYPES[_nft.nftClass] });
+						setLoading(false);
+						setShow(true);
+						setRefresh((pre) => !pre);
+					}
+				});
+			}
 		} catch (error: any) {
 			if (/ERC20: insufficient allowance/gi.test(error.message)) {
 				await approveTokenSale(library, account);
 				handleBuyBox(boxId);
 			} else {
+				console.log(error);
 				error.message && alert(error.message);
 				setLoading(false);
 			}
-		} finally {
-			setLoading(false);
 		}
 	};
 
@@ -165,7 +192,7 @@ export const MarketPlace = () => {
 									<Col key={id} xl={8} xs={12}>
 										<CardComponent
 											stateChanger={setShow}
-											changeLoading={setLoading}
+											// changeLoading={setLoading}
 											handleClick={handleBuyBox}
 											bg={box1}
 											id={id}
