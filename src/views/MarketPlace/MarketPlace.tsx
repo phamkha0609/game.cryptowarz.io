@@ -80,7 +80,7 @@ export const MarketPlace = () => {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const tab = urlParams.get("tab");
-  const [isShow, setShow] = useState(false);
+  const [isShow, setShow] = useState(true);
   const [isLoading, setLoading] = useState(false);
 
   const [currentTab, setCurrentTab] = useState<string>("box");
@@ -109,7 +109,7 @@ export const MarketPlace = () => {
 
   return (
     <div className="container">
-      <Modal isShow={isShow} reward={reward}/>
+      <Modal isShow={isShow} reward={reward} changeShowStatus={setShow}/>
       <Loading isShow={isLoading}/>
       
 
