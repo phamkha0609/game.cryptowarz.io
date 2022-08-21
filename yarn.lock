@@ -2240,6 +2240,13 @@
   dependencies:
     "@types/react" "*"
 
+"@types/react-modal@^3.13.1":
+  "integrity" "sha512-iY/gPvTDIy6Z+37l+ibmrY+GTV4KQTHcCyR5FIytm182RQS69G5ps4PH2FxtC7bAQ2QRHXMevsBgck7IQruHNg=="
+  "resolved" "https://registry.npmjs.org/@types/react-modal/-/react-modal-3.13.1.tgz"
+  "version" "3.13.1"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-pdf@^5.0.9":
   "integrity" "sha512-sDK48DwAnha8nf74cavp1g1a8oCLI3F4hBQZm+DHZmgGYOnBm0UuAKwVu84cL2By0MkiCrGv0KSJDVSv+tN6KA=="
   "resolved" "https://registry.npmjs.org/@types/react-pdf/-/react-pdf-5.0.9.tgz"
@@ -6769,6 +6776,11 @@
   "resolved" "https://registry.npmjs.org/normalize-url/-/normalize-url-6.1.0.tgz"
   "version" "6.1.0"
 
+"notiflix@^3.2.5":
+  "integrity" "sha512-eMoMlT6gRl6RmO7N23j4APhxSYpYyNRV4T6qF11f3Yh3GMd/GKOdEZ+q/q1crUsZBg0f9EEfTXxLE3A/T3Cu9Q=="
+  "resolved" "https://registry.npmjs.org/notiflix/-/notiflix-3.2.5.tgz"
+  "version" "3.2.5"
+
 "npm-run-path@^4.0.1":
   "integrity" "sha512-S48WzZW777zhNIrn7gxOlISNAqi9ZC/uQFnRdbeIHhZhCA6UqpkOT8T1G7BvfdgP4Er8gF4sUbaS0i7QvIfCWw=="
   "resolved" "https://registry.npmjs.org/npm-run-path/-/npm-run-path-4.0.1.tgz"
@@ -8238,7 +8250,7 @@
     "strip-ansi" "^6.0.1"
     "text-table" "^0.2.0"
 
-"react-dom@*", "react-dom@^16.3.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.2", "react-dom@>=16.0.0", "react-dom@>=16.11.0", "react-dom@>=16.3.0", "react-dom@>=16.8", "react-dom@>=16.9.0":
+"react-dom@*", "react-dom@^16.0.0 || ^17.0.0", "react-dom@^16.3.0 || ^17.0.0 || ^18.0.0", "react-dom@^17.0.2", "react-dom@>=16.0.0", "react-dom@>=16.11.0", "react-dom@>=16.3.0", "react-dom@>=16.8", "react-dom@>=16.9.0":
   "integrity" "sha512-s4h96KtLDUQlsENhMn1ar8t2bEa+q/YAtj8pPPdIjPDGBDIVNsrD9aXNWqspUe6AzKCIG0C1HZZLqLV7qpOBGA=="
   "resolved" "https://registry.npmjs.org/react-dom/-/react-dom-17.0.2.tgz"
   "version" "17.0.2"
@@ -8261,6 +8273,13 @@
   "integrity" "sha512-w2GsyukL62IJnlaff/nRegPQR94C/XXamvMWmSHRJ4y7Ts/4ocGRmTHvOs8PSE6pB3dWOrD/nueuU5sduBsQ4w=="
   "resolved" "https://registry.npmjs.org/react-is/-/react-is-17.0.2.tgz"
   "version" "17.0.2"
+
+"react-new-window@^0.2.1":
+  "integrity" "sha512-3s6W8eipRbjoLGvWpFRPSt2/z5h9FTS01C+ZjaEZX7/cF6ejGc6JVuL4oEo0s73IluaqoLIDB49AK4fSMW8pJw=="
+  "resolved" "https://registry.npmjs.org/react-new-window/-/react-new-window-0.2.1.tgz"
+  "version" "0.2.1"
+  dependencies:
+    "prop-types" "^15.7.2"
 
 "react-pdf@^5.7.1":
   "integrity" "sha512-0G0Yb5Lx/B52+AJcLoJ3181IOet4ug7hgyE/U3/0QHcj5lK8i0DYZJSnE3KowAi0p8FBfUhp6QngUgJZGmuKIQ=="
@@ -8353,7 +8372,7 @@
   optionalDependencies:
     "fsevents" "^2.3.2"
 
-"react@*", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.3.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2", "react@>= 16", "react@>=16.0.0", "react@>=16.11.0", "react@>=16.3.0", "react@>=16.8", "react@>=16.9.0", "react@17.0.2":
+"react@*", "react@^15.3.0 || ^16.0.0 || ^17.0.0", "react@^16.0.0 || ^17.0.0", "react@^16.3.0 || ^17.0.0 || ^18.0.0", "react@^17.0.2", "react@>= 16", "react@>=16.0.0", "react@>=16.11.0", "react@>=16.3.0", "react@>=16.8", "react@>=16.9.0", "react@17.0.2":
   "integrity" "sha512-gnhPt75i/dq/z3/6q/0asP78D0u592D5L1pd7M8P+dck6Fu/jJeL6iVVK23fptSUZj8Vjf++7wXA8UNclGQcbA=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.2.tgz"
   "version" "17.0.2"

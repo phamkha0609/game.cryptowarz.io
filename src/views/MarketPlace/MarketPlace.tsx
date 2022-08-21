@@ -12,15 +12,23 @@ import box1 from "../../assets/img/b1.svg";
 import "./marketPlace.scss";
 import b1 from "../../assets/img/box/box-1.png";
 import b2 from "../../assets/img/box/box-2.png";
+import Modal from "../../components/CustomModal/Modal";
+import Loading from "../../components/CustomLoading/Loading";
 
 const nftList = [
   {
     id: 0,
-    sc: b1
+    sc: b1,
+    content: 'NFT LAND',
+    created: 3000,
+    limit: 100,
   },
   {
     id: 1,
-    sc: b2
+    sc: b2,
+    content: 'NFT KING KETHER',
+    created: 5000,
+    limit: 255,
   },
 ]
 
@@ -32,6 +40,8 @@ export const MarketPlace = () => {
   const location = useLocation();
   const urlParams = new URLSearchParams(location.search);
   const tab = urlParams.get("tab");
+  const [isShow, setShow] = useState(false);
+  const [isLoading, setLoading] = useState(false);
 
   const [currentTab, setCurrentTab] = useState<string>("box");
   const [nfts, setNfts] = useState([]);
@@ -50,8 +60,19 @@ export const MarketPlace = () => {
     })();
   }, [account, library]);
 
+  // data exp
+  const reward = {
+    name: "KING KETHER",
+    type: "EXAMPLE",
+    property: "EXAMPLE"
+  }
+
   return (
     <div className="container">
+      <Modal isShow={isShow} reward={reward}/>
+      <Loading isShow={isLoading}/>
+      
+
       <Row gutter={24}>
         {/* <Col xl={8} xs={0}>
           <Filter />
@@ -76,8 +97,8 @@ export const MarketPlace = () => {
 
               <Row gutter={[16, 16]}>
                 {nftList.map((e, id) => (
-                  <Col key={id} xl={8} xs={16}>
-                    <CardComponent bg={box1} id={id} sc={e.sc} />
+                  <Col key={id} xl={8} xs={12}>
+                    <CardComponent stateChanger={setShow} changeLoading={setLoading} bg={box1} id={id} sc={e.sc} content={e.content} created={e.created} limit={e.limit}/>
                   </Col>
                 ))}
               </Row>

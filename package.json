@@ -21,10 +21,12 @@
     "lodash": "^4.17.21",
     "mobx": "^6.3.13",
     "mobx-persist-store": "^1.0.4",
+    "notiflix": "^3.2.5",
     "react": "^17.0.2",
     "react-bulma-components": "^4.1.0",
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "^17.0.2",
+    "react-new-window": "^0.2.1",
     "react-pdf": "^5.7.1",
     "react-router-dom": "^6.2.1",
     "react-scripts": "^5.0.0",
@@ -62,6 +64,7 @@
     "@types/react-big-calendar": "^0.36.2",
     "@types/react-copy-to-clipboard": "^5.0.2",
     "@types/react-input-mask": "^3.0.1",
+    "@types/react-modal": "^3.13.1",
     "@types/react-pdf": "^5.0.9"
   }
 }

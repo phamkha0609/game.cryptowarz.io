@@ -1,55 +1,79 @@
 .card-custom {
-  aspect-ratio: 3/4;
-  position: relative;
+  display: flex;
+  background-image: linear-gradient(45deg, #2a344dc1, rgba(24, 87, 114, 0.793));
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 8px;
+  max-width: 320px;
+  border-top: 8px solid #e807dd;
+  border-right: 6px solid #7d0079;
+  border-bottom: 4px solid #530446;
+  border-left: 4px solid #791462;
+  border-radius: 10px;
 
-  .content {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    top: 0;
-    left: 0;
+  img{
+    width: 30%;
+  }
+
+  .title{
+    font-weight: bold;
+    color: cyan;
+    margin-top: 10px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+
+  .content{
     width: 100%;
-    height: 100%;
+    margin-top: 100px;
+  }
 
-    .header {
-      margin-top: 1em;
-      font-size: 20px;
-      text-align: center;
-    }
+  .info-content{
+    width: 100%;
+    display: flex;
+    font-size: 12px;
+    margin-top: 4px;
+    justify-content: space-between;
+  }
 
-    .footer {
-      margin-top: auto;
-      padding: 1em;
-      font-size: 12px;
+  .info-content > div:nth-child(2){
+    color: #d741f5;
+  }
 
-      .name {
-        text-align: center;
-        font-size: 18px;
-        margin-bottom: 0.5em;
-      }
-    }
+  .footer{
+    width: 100%;
+  }
+
+  .footer > button{
+    width: 100%;
+    margin-top: 24px;
+    padding: 4px 0;
+    background-image: linear-gradient(90deg, #ff013c, #e807dd);
+    border: none;
+    cursor: pointer;
+    border-radius: 100px;
+    transition: .35s;
+  }
+
+  .footer > button:hover{
+    transform: scale(1.035);
   }
 }
 
-.card-hero {
-  background: #000000;
-  margin-bottom: 1em;
-  border-radius: 0 0 5px 5px;
-  background: -webkit-linear-gradient(
-    0deg,
-    #000000 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  background: linear-gradient(
-    0deg,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  img {
-    width: 100%;
+@media screen and (max-width: 450px) {
+  .title{
+    font-size: 10px !important;
   }
 
-  .footer {
-    padding: 0 2em 1em;
+  .content{
+    margin-top: 50px !important;
+  }
+
+  .info-content{
+    font-size: 8px !important;
+  }
+
+  .footer > button{
+    font-size: 10px;
   }
 }
