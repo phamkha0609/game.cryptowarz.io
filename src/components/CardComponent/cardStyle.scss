@@ -1,109 +1,116 @@
 .card-custom {
-  display: flex;
-  background-image: linear-gradient(45deg, #2a344dc1, rgba(24, 87, 114, 0.793));
-  flex-direction: column;
-  align-items: center;
-  padding: 20px 8px;
-  max-width: 320px;
-  border-top: 8px solid #e807dd;
-  border-right: 6px solid #7d0079;
-  border-bottom: 4px solid #530446;
-  border-left: 4px solid #791462;
-  border-radius: 10px;
+	display: flex;
+	background-image: linear-gradient(45deg, #2a344dc1, rgba(24, 87, 114, 0.793));
+	flex-direction: column;
+	align-items: center;
+	padding: 20px 8px;
+	max-width: 320px;
+	border-top: 8px solid #e807dd;
+	border-right: 6px solid #7d0079;
+	border-bottom: 4px solid #530446;
+	border-left: 4px solid #791462;
+	border-radius: 10px;
 
-  img{
-    width: 30%;
-  }
+	img {
+		width: 30%;
+	}
 
-  .title{
-    font-weight: bold;
-    color: cyan;
-    margin-top: 10px;
-    text-align: center;
-    margin-bottom: 24px;
-  }
+	.land_id {
+		font-weight: bold;
+		color: #d741f5;
+		margin-top: 10px;
+		text-align: center;
+	}
 
-  .content{
-    width: 100%;
-    margin-top: 100px;
-  }
+	.title {
+		font-weight: bold;
+		color: #d741f5;
+		margin-top: 10px;
+		text-align: center;
+		margin-bottom: 24px;
+	}
 
-  .info-content{
-    width: 100%;
-    display: flex;
-    font-size: 12px;
-    margin-top: 4px;
-    justify-content: space-between;
-  }
+	.content {
+		width: 100%;
+		margin-top: 100px;
+	}
 
-  .info-content > div:nth-child(2){
-    color: #d741f5;
-  }
+	.info-content {
+		width: 100%;
+		display: flex;
+		font-size: 12px;
+		margin-top: 4px;
+		justify-content: space-between;
+	}
 
-  .footer{
-    width: 100%;
-  }
+	.info-content > div:nth-child(2) {
+		color: #d741f5;
+	}
 
-  .footer > button{
-    width: 100%;
-    margin-top: 24px;
-    padding: 4px 0;
-    background-image: linear-gradient(90deg, #ff013c, #e807dd);
-    border: none;
-    cursor: pointer;
-    border-radius: 100px;
-    transition: .35s;
-  }
+	.footer {
+		width: 100%;
+	}
 
-  .footer > button:hover{
-    transform: scale(1.035);
-  }
+	.footer > button {
+		width: 100%;
+		margin-top: 24px;
+		padding: 4px 0;
+		background-image: linear-gradient(90deg, #ff013c, #e807dd);
+		border: none;
+		cursor: pointer;
+		border-radius: 100px;
+		transition: 0.35s;
+	}
+
+	.footer > button:hover {
+		transform: scale(1.035);
+	}
 }
 
-.nft-hero{
-  border-top: 8px solid #07e870;
-  border-right: 6px solid #005f33;
-  border-bottom: 4px solid hsl(151, 100%, 7%);
-  border-left: 4px solid #004b2a;
+.nft-hero {
+	border-top: 8px solid #07e870;
+	border-right: 6px solid #005f33;
+	border-bottom: 4px solid hsl(151, 100%, 7%);
+	border-left: 4px solid #004b2a;
 
-  .info-content > div:nth-child(2){
-    color: #16ff83;
-  }
+	.info-content > div:nth-child(2) {
+		color: #16ff83;
+	}
 
-  .title{
-    color: #ff16f3;
-  }
+	.title {
+		color: #ff16f3;
+	}
 }
 
-.nft-land{
-  border-top: 8px solid #07e1e8;
-  border-right: 6px solid #00515f;
-  border-bottom: 4px solid #001e42;
-  border-left: 4px solid #006680;
+.nft-land {
+	border-top: 8px solid #07e1e8;
+	border-right: 6px solid #00515f;
+	border-bottom: 4px solid #001e42;
+	border-left: 4px solid #006680;
 
-  .info-content > div:nth-child(2){
-    color: #07e1e8;
-  }
+	.info-content > div:nth-child(2) {
+		color: #07e1e8;
+	}
 
-  .title{
-    color: #ff16f3;
-  }
+	.title {
+		color: #ff16f3;
+	}
 }
 
 @media screen and (max-width: 450px) {
-  .title{
-    font-size: 10px !important;
-  }
+	.title {
+		font-size: 10px !important;
+	}
 
-  .content{
-    margin-top: 50px !important;
-  }
+	.content {
+		margin-top: 50px !important;
+	}
 
-  .info-content{
-    font-size: 8px !important;
-  }
+	.info-content {
+		font-size: 8px !important;
+	}
 
-  .footer > button{
-    font-size: 10px;
-  }
+	.footer > button {
+		font-size: 10px;
+	}
 }
