@@ -2,7 +2,7 @@ import React from 'react'
 import "./Modal.scss"
 import nft from "../../assets/img/tmp/wood.png"
 
-function Modal({ isShow, reward }) {
+function Modal({ isShow, reward, changeShowStatus }) {
     return (
         <>
             {isShow ?
@@ -13,10 +13,16 @@ function Modal({ isShow, reward }) {
                             <div className="after"></div>
                         </div>
                         <img src={nft} alt="nft" />
-                        <div>Name: {reward.name}</div>
-                        <div>Type: {reward.type}</div>
-                        <div>Property: {reward.property}</div>
+                        <div className='text-content'>
+                            <div><h2>{reward.name}</h2></div>
+                            <hr/>
+                            <div>Type: <span>{reward.type}</span></div>
+                            <hr/>
+                            <div>Property: <span>{reward.property}</span></div>
+                        </div>
                     </div>
+
+                    <button onClick={() => changeShowStatus(false)}>CLAIM</button>
                 </div> :
                 <></>
             }

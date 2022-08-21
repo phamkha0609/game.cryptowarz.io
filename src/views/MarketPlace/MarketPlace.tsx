@@ -136,7 +136,7 @@ export const MarketPlace = () => {
 
 	return (
 		<div className="container">
-			<Modal isShow={isShow} reward={reward} />
+			<Modal isShow={isShow} reward={reward} changeShowStatus={setShow} />
 			<Loading isShow={isLoading} />
 
 			<Row gutter={24}>
