@@ -1,39 +1,34 @@
-import { HERO, NFT, _NFT } from "configs/constants";
-import { BigNumber } from "ethers";
-import React, { useState } from "react";
+import { KING_TYPES } from "configs/constants";
 import { Link } from "react-router-dom";
 import "./cardStyle.scss";
 
-export const HeroComponent = ({
-  name,
-  src,
-  price,
-  created
-}: {
-  name?: string;
-  src?: string;
-  price?: number;
-  created?: number;
-}) => {
-
-  return (
-    // <Link to={`/detail/${id ?? 1}`}>
-    <Link to={``}>
-      <div className="card-custom nft-hero">
-        <img src={src} alt="image" />
-        <h4 className="title">{name}</h4>
-        <div className="content">
-          <div className="info-content">
-            <div>Price</div>
-            <div>$WARZ {price}</div>
-          </div>
-          <div className="info-content">
-            <div>Created</div>
-            <div>{created}</div>
-          </div>
-        </div>
-      </div>
-
-    </Link>
-  );
+export const HeroComponent = ({ king }: { king: any }) => {
+	return (
+		// <Link to={`/detail/${id ?? 1}`}>
+		<Link to={``}>
+			<div className="card-custom nft-hero">
+				<img src={king.url} alt="image" />
+				<h4 className="land_id">ID: {king.id.toString()}</h4>
+				<h4 className="title">{KING_TYPES[king.nftClass]}</h4>
+				<div className="content">
+					<div className="info-content">
+						<div>Blook</div>
+						<div>{king.stats?.blood}</div>
+					</div>
+					<div className="info-content">
+						<div>Mana</div>
+						<div>{king.stats?.mana}</div>
+					</div>
+					<div className="info-content">
+						<div>Attack</div>
+						<div>{king.stats?.attack}</div>
+					</div>
+					<div className="info-content">
+						<div>Defense</div>
+						<div>{king.stats?.defense}</div>
+					</div>
+				</div>
+			</div>
+		</Link>
+	);
 };
