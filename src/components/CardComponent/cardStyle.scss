@@ -60,6 +60,36 @@
   }
 }
 
+.nft-hero{
+  border-top: 8px solid #07e870;
+  border-right: 6px solid #005f33;
+  border-bottom: 4px solid hsl(151, 100%, 7%);
+  border-left: 4px solid #004b2a;
+
+  .info-content > div:nth-child(2){
+    color: #16ff83;
+  }
+
+  .title{
+    color: #ff16f3;
+  }
+}
+
+.nft-land{
+  border-top: 8px solid #07e1e8;
+  border-right: 6px solid #00515f;
+  border-bottom: 4px solid #001e42;
+  border-left: 4px solid #006680;
+
+  .info-content > div:nth-child(2){
+    color: #07e1e8;
+  }
+
+  .title{
+    color: #ff16f3;
+  }
+}
+
 @media screen and (max-width: 450px) {
   .title{
     font-size: 10px !important;

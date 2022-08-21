@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./cardStyle.scss";
 
-export const HeroComponent = ({
+export const LandComponent = ({
   name,
   src,
   price,
@@ -19,7 +19,7 @@ export const HeroComponent = ({
   return (
     // <Link to={`/detail/${id ?? 1}`}>
     <Link to={``}>
-      <div className="card-custom nft-hero">
+      <div className="card-custom nft-land">
         <img src={src} alt="image" />
         <h4 className="title">{name}</h4>
         <div className="content">

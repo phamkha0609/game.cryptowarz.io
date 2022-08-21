@@ -2,6 +2,7 @@ import { CloseOutlined, FilterOutlined } from "@ant-design/icons";
 import { Button, Col, Drawer, Row, Space, Tabs } from "antd";
 import { CardComponent } from "components/CardComponent/CardComponent";
 import { HeroComponent } from "components/CardComponent/HeroComponent";
+import { LandComponent } from "components/CardComponent/LandComponent";
 import { Filter } from "components/Filter/Filter";
 import { NFTs } from "configs/constants";
 import useActiveWeb3React from "hooks/useActiveWeb3React";
@@ -12,10 +13,11 @@ import box1 from "../../assets/img/b1.svg";
 import "./marketPlace.scss";
 import b1 from "../../assets/img/box/box-1.png";
 import b2 from "../../assets/img/box/box-2.png";
+import hero from "../../assets/img/tmp/wood.png";
 import Modal from "../../components/CustomModal/Modal";
 import Loading from "../../components/CustomLoading/Loading";
 
-const nftList = [
+const boxList = [
   {
     id: 0,
     sc: b1,
@@ -29,6 +31,44 @@ const nftList = [
     content: 'NFT KING KETHER',
     created: 5000,
     limit: 255,
+  },
+]
+
+const nftList = [
+  {
+    id: 0,
+    sc: hero,
+    name: 'KING KETHER',
+    created: 3000,
+    price: 3000,
+  },
+  {
+    id: 1,
+    sc: hero,
+    name: 'KING KETHER',
+    created: 3000,
+    price: 3000,
+  },
+  {
+    id: 2,
+    sc: hero,
+    name: 'KING KETHER',
+    created: 3000,
+    price: 3000,
+  },
+  {
+    id: 3,
+    sc: hero,
+    name: 'KING KETHER',
+    created: 3000,
+    price: 3000,
+  },
+  {
+    id: 4,
+    sc: hero,
+    name: 'KING KETHER',
+    created: 3000,
+    price: 3000,
   },
 ]
 
@@ -95,9 +135,9 @@ export const MarketPlace = () => {
                 </Space>
               </div>
 
-              <Row gutter={[16, 16]}>
-                {nftList.map((e, id) => (
-                  <Col key={id} xl={8} xs={12}>
+              <Row gutter={[24, 24]}>
+                {boxList.map((e, id) => (
+                  <Col key={id} xl={6} xs={12}>
                     <CardComponent stateChanger={setShow} changeLoading={setLoading} bg={box1} id={id} sc={e.sc} content={e.content} created={e.created} limit={e.limit}/>
                   </Col>
                 ))}
@@ -114,6 +154,14 @@ export const MarketPlace = () => {
                 >
                 </Space>
               </div>
+
+              <Row gutter={[24, 24]}>
+                {nftList.map((e, id) => (
+                  <Col key={id} xl={6} xs={12}>
+                    <LandComponent name={e.name} price={e.price} src={e.sc} created={e.created}/>
+                  </Col>
+                ))}
+              </Row>
             </Tabs.TabPane>
 
             <Tabs.TabPane tab="KING KETHER" key="kether">
@@ -127,6 +175,14 @@ export const MarketPlace = () => {
                 >
                 </Space>
               </div>
+
+              <Row gutter={[24, 24]}>
+                {nftList.map((e, id) => (
+                  <Col key={id} xl={6} xs={12}>
+                    <HeroComponent name={e.name} price={e.price} src={e.sc} created={e.created}/>
+                  </Col>
+                ))}
+              </Row>
             </Tabs.TabPane>
           </Tabs>
         </Col>

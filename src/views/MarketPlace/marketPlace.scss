@@ -55,3 +55,8 @@
 .ant-tabs-bottom > div > .ant-tabs-nav::before {
   border-bottom: none !important;
 }
+
+.ant-tabs-content-holder{
+  max-height: 500px;
+  overflow: scroll;
+}
