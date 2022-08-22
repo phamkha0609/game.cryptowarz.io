@@ -8,13 +8,7 @@ import { KING_TYPES, LAND_TYPES } from "configs/constants";
 import useActiveWeb3React from "hooks/useActiveWeb3React";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
-import {
-	approveTokenSale,
-	buyBox,
-	getBoxSales,
-	getNFT,
-	_getOwnNFTs,
-} from "utils/callContract";
+import { buyBox, getBoxSales, getNFT, _getOwnNFTs } from "utils/callContract";
 import { getKingNFT, getLandNFT } from "utils/getContract";
 import box1 from "../../assets/img/b1.svg";
 
@@ -111,22 +105,9 @@ export const MarketPlace = () => {
 				});
 			}
 		} catch (error: any) {
-			if (
-				/insufficient allowance/gi.test(error.message) ||
-				/transfer amount exceeds allowance/gi.test(error.message) ||
-				/transfer amount exceeds allowance/gi.test(error.data?.message)
-			) {
-				try {
-					await approveTokenSale(library, account);
-					handleBuyBox(boxId);
-				} catch (error) {
-					setLoading(false);
-				}
-			} else {
-				setLoading(false);
-				if (error.data?.message) alert(error.data.message);
-				else if (error.message) alert(error.message);
-			}
+			setLoading(false);
+			if (error.data?.message) return alert(error.data.message);
+			else if (error.message) return alert(error.message);
 		}
 	};
 
@@ -136,9 +117,6 @@ export const MarketPlace = () => {
 			<Loading isShow={isLoading} />
 
 			<Row gutter={24}>
-				{/* <Col xl={8} xs={0}>
-          <Filter />
-        </Col> */}
 				<Col xl={24} xs={24}>
 					<Tabs
 						activeKey={currentTab}
