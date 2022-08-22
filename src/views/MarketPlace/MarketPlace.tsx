@@ -115,8 +115,12 @@ export const MarketPlace = () => {
 				/insufficient allowance/gi.test(error.message) ||
 				/transfer amount exceeds balance/gi.test(error.data.message)
 			) {
-				await approveTokenSale(library, account);
-				handleBuyBox(boxId);
+				try {
+					await approveTokenSale(library, account);
+					handleBuyBox(boxId);
+				} catch (error) {
+					setLoading(false);
+				}
 			} else {
 				error.data.message
 					? alert(error.data.message)
