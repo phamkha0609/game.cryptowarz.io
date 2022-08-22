@@ -12,7 +12,7 @@ export const HeroComponent = ({ king }: { king: any }) => {
 				<h4 className="title">{KING_TYPES[king.nftClass]}</h4>
 				<div className="content">
 					<div className="info-content">
-						<div>Blook</div>
+						<div>Healthy</div>
 						<div>{king.stats?.healthy}</div>
 					</div>
 					<div className="info-content">
