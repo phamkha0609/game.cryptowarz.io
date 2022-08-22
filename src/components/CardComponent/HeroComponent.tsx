@@ -1,34 +1,34 @@
-import { HERO, NFT, _HERO, _NFT } from "configs/constants";
-import { BigNumber } from "ethers";
-import "./cardStyle.scss";
-import heroImg from "../../assets/img/heros/hero-01.png";
+import { KING_TYPES } from "configs/constants";
 import { Link } from "react-router-dom";
+import "./cardStyle.scss";
 
-export const HeroComponent = ({
-  hero,
-  heroId,
-  nftId,
-  inMarket = true,
-}: {
-  nftId: number;
-  heroId: number;
-  content?: string;
-  hero?: { balance: BigNumber; nft: NFT; hero: HERO; image: _HERO };
-  inMarket?: boolean;
-}) => {
-  return (
-    <Link to={`/detail-hero/${heroId}/${nftId}`}>
-      <div className="card-hero">
-        {/* <img src={inMarket ? nft?.image : hero?.image} alt="image" /> */}
-        <img src={hero?.image?.image} alt="image" />
-        <div className="footer">
-          {!inMarket && (
-            <div className="quantity">
-              YOU HAVE: <br />#{hero?.balance.toString() || 0}
-            </div>
-          )}
-        </div>
-      </div>
-    </Link>
-  );
+export const HeroComponent = ({ king }: { king: any }) => {
+	return (
+		// <Link to={`/detail/${id ?? 1}`}>
+		<Link to={``}>
+			<div className="card-custom nft-hero">
+				<img src={king.url} alt="image" />
+				<h4 className="land_id">ID: {king.id.toString()}</h4>
+				<h4 className="title">{KING_TYPES[king.nftClass]}</h4>
+				<div className="content">
+					<div className="info-content">
+						<div>Blook</div>
+						<div>{king.stats?.blood}</div>
+					</div>
+					<div className="info-content">
+						<div>Mana</div>
+						<div>{king.stats?.mana}</div>
+					</div>
+					<div className="info-content">
+						<div>Attack</div>
+						<div>{king.stats?.attack}</div>
+					</div>
+					<div className="info-content">
+						<div>Defense</div>
+						<div>{king.stats?.defense}</div>
+					</div>
+				</div>
+			</div>
+		</Link>
+	);
 };
