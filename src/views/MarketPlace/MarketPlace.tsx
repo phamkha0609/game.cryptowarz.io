@@ -111,12 +111,16 @@ export const MarketPlace = () => {
 				});
 			}
 		} catch (error: any) {
-			if (/ERC20: insufficient allowance/gi.test(error.message)) {
+			if (
+				/insufficient allowance/gi.test(error.message) ||
+				/transfer amount exceeds balance/gi.test(error.data.message)
+			) {
 				await approveTokenSale(library, account);
 				handleBuyBox(boxId);
 			} else {
-				console.log(error);
-				error.message && alert(error.message);
+				error.data.message
+					? alert(error.data.message)
+					: error.message && alert(error.message);
 				setLoading(false);
 			}
 		}
