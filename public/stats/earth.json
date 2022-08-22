@@ -1,9 +1,9 @@
 {
 	"url": "https://bafybeifpswo5cg5verjpypii7zkbpp3wyhw7hnec3rmrhcl7qqxrb2uw64.ipfs.nftstorage.link/earth.png",
 	"stats": {
-		"blood": 100,
-		"mana": 100,
-		"attack": 100,
-		"defense": 100
+		"healthy": 200,
+		"mana": 300,
+		"defense": 300,
+		"attack": 200
 	}
 }

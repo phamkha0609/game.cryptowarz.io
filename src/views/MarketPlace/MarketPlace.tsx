@@ -11,72 +11,18 @@ import { useLocation } from "react-router-dom";
 import {
 	approveTokenSale,
 	buyBox,
+	getBoxSales,
 	getNFT,
 	_getOwnNFTs,
 } from "utils/callContract";
 import { getKingNFT, getLandNFT } from "utils/getContract";
 import box1 from "../../assets/img/b1.svg";
-import b1 from "../../assets/img/box/box-1.png";
-import b2 from "../../assets/img/box/box-2.png";
+
 import hero from "../../assets/img/tmp/wood.png";
 import Loading from "../../components/CustomLoading/Loading";
 import Modal from "../../components/CustomModal/Modal";
 import "./marketPlace.scss";
 
-const boxList = [
-	{
-		id: 0,
-		sc: b1,
-		content: "NFT LAND",
-		created: 3000,
-		limit: 100,
-	},
-	{
-		id: 1,
-		sc: b2,
-		content: "NFT KING KETHER",
-		created: 5000,
-		limit: 255,
-	},
-];
-
-const nftList = [
-	{
-		id: 0,
-		sc: hero,
-		name: "KING KETHER",
-		created: 3000,
-		price: 3000,
-	},
-	{
-		id: 1,
-		sc: hero,
-		name: "KING KETHER",
-		created: 3000,
-		price: 3000,
-	},
-	{
-		id: 2,
-		sc: hero,
-		name: "KING KETHER",
-		created: 3000,
-		price: 3000,
-	},
-	{
-		id: 3,
-		sc: hero,
-		name: "KING KETHER",
-		created: 3000,
-		price: 3000,
-	},
-	{
-		id: 4,
-		sc: hero,
-		name: "KING KETHER",
-		created: 3000,
-		price: 3000,
-	},
-];
 const TAB = ["box", "hero"];
 
 export const MarketPlace = () => {
@@ -88,6 +34,7 @@ export const MarketPlace = () => {
 	const [isShow, setShow] = useState(false);
 	const [isLoading, setLoading] = useState(true);
 	const [reward, setReward] = useState<any>();
+	const [boxList, setBoxList] = useState<any[]>([]);
 
 	const [refresh, setRefresh] = useState(false);
 
@@ -98,6 +45,22 @@ export const MarketPlace = () => {
 	useEffect(() => {
 		tab && TAB.includes(tab) && setCurrentTab(tab);
 	}, [tab]);
+
+	useEffect(() => {
+		(async () => {
+			if (!library) {
+				setLoading(false);
+				return;
+			}
+			try {
+				const res = await getBoxSales(library);
+				setBoxList(res);
+			} catch (error) {
+				console.log(error);
+				setLoading(false);
+			}
+		})();
+	}, [library, refresh]);
 
 	useEffect(() => {
 		(async () => {
@@ -122,11 +85,9 @@ export const MarketPlace = () => {
 		try {
 			setLoading(true);
 			await buyBox(library, account, boxId);
-			// alert("Buy success");
 			if (boxId == 0) {
 				const landNFT = getLandNFT(library, account);
 				landNFT.on("Transfer", async (from, to, tokenId) => {
-					console.log(tokenId);
 					if (to && to.toLowerCase() === account.toLowerCase()) {
 						landNFT.removeAllListeners();
 						const _nft = await getNFT(landNFT, tokenId);
@@ -190,17 +151,7 @@ export const MarketPlace = () => {
 							<Row gutter={[24, 24]}>
 								{boxList.map((e, id) => (
 									<Col key={id} xl={8} xs={12}>
-										<CardComponent
-											stateChanger={setShow}
-											// changeLoading={setLoading}
-											handleClick={handleBuyBox}
-											bg={box1}
-											id={id}
-											sc={e.sc}
-											content={e.content}
-											created={e.created}
-											limit={e.limit}
-										/>
+										<CardComponent id={id} box={e} handleClick={handleBuyBox} />
 									</Col>
 								))}
 							</Row>

@@ -13,7 +13,7 @@ export const HeroComponent = ({ king }: { king: any }) => {
 				<div className="content">
 					<div className="info-content">
 						<div>Blook</div>
-						<div>{king.stats?.blood}</div>
+						<div>{king.stats?.healthy}</div>
 					</div>
 					<div className="info-content">
 						<div>Mana</div>

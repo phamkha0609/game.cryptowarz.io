@@ -1,56 +1,46 @@
-import { HERO, NFT, _NFT } from "configs/constants";
+import { BOX_NAMES, HERO, NFT, _NFT } from "configs/constants";
 import { BigNumber } from "ethers";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./cardStyle.scss";
+import b1 from "../../assets/img/box/box-1.png";
+import b2 from "../../assets/img/box/box-2.png";
+import { formatEther, parseEther } from "ethers/lib/utils";
 
 export const CardComponent = ({
-	bg,
-	content,
 	id,
-	nft,
-	sc,
-	hero,
-	price,
-	created,
-	limit,
-	inMarket = true,
-	stateChanger,
-	changeLoading,
+	box,
 	handleClick,
 }: {
-	bg: any;
-	content?: string;
 	id: number;
-	nft?: _NFT;
-	hero?: { balance: BigNumber; nft: NFT; hero: HERO; image: string };
-	sc?: string;
-	price?: number;
-	created?: number;
-	limit?: number;
-	inMarket?: boolean;
-	stateChanger?: any;
-	changeLoading?: any;
+	box: any;
 	handleClick: (id: number) => any;
 }) => {
+	useEffect(() => {});
+
 	return (
 		// <Link to={`/detail/${id ?? 1}`}>
 		<Link to={``}>
 			<div className="card-custom">
-				<img src={sc} alt="image" />
-				<h4 className="title">{content}</h4>
+				<img src={id == 0 ? b1 : b2} alt="image" />
+				<h4 className="title">{BOX_NAMES[id]}</h4>
 				<div className="content">
 					<div className="info-content">
 						<div>Price;</div>
-						<div>48,000 WARZ &#61; 30BUSD</div>
+						<div>
+							{parseFloat(formatEther(box.tokenFee?.toString() ?? "0")).toFixed(
+								3
+							)}{" "}
+							WARZ &#61; 30BUSD
+						</div>
 					</div>
 					<div className="info-content">
 						<div>Created</div>
-						<div>12,000</div>
+						<div>{box.created.toString()}</div>
 					</div>
 					<div className="info-content">
 						<div>Limit</div>
-						<div>8,000</div>
+						<div>{box.limit.toString()}</div>
 					</div>
 					<div className="info-content">
 						<div>Payment</div>

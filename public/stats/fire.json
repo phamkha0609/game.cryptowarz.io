@@ -1,9 +1,9 @@
 {
 	"url": "https://bafybeifpswo5cg5verjpypii7zkbpp3wyhw7hnec3rmrhcl7qqxrb2uw64.ipfs.nftstorage.link/fire.png",
 	"stats": {
-		"blood": 200,
-		"mana": 200,
-		"attack": 200,
-		"defense": 200
+		"healthy": 300,
+		"mana": 300,
+		"defense": 200,
+		"attack": 200
 	}
 }

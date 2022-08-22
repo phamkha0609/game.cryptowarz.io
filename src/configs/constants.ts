@@ -46,6 +46,11 @@ export const KING_TYPES: { [key: string]: string } = {
 	5: "Ultimate",
 };
 
+export const BOX_NAMES: { [key: string]: string } = {
+	0: "NFT LAND",
+	1: "NFT KING KETHER",
+};
+
 export const GAME_ADDRESS = "0xc037EcC0da5ADD98054598D6E5830efDa40B1A40";
 
 export const PRE_SALE_METHODS = {

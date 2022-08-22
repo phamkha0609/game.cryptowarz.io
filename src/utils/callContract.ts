@@ -21,6 +21,8 @@ import {
 	getLandNFT,
 	getTokenSaleContract,
 } from "./getContract";
+import b1 from "../../assets/img/box/box-1.png";
+import b2 from "../../assets/img/box/box-2.png";
 
 export const buyNFT = async (
 	library: Web3Provider,
@@ -172,8 +174,27 @@ export const getNFT = async (contract: Contract, id: any) => {
 		return {
 			id,
 			nftClass,
+			url,
 			...res.data,
 		};
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const getBoxSales = async (library: Web3Provider) => {
+	try {
+		const boxSaleContract = getBoxSaleContract(library);
+
+		const [landBox, kingBox, tokenFee] = await Promise.all([
+			callContract(boxSaleContract, "getBox", [0]),
+			callContract(boxSaleContract, "getBox", [1]),
+			callContract(boxSaleContract, "getTokenFee", []),
+		]);
+		return [
+			{ ...landBox, tokenFee },
+			{ ...kingBox, tokenFee },
+		];
 	} catch (error) {
 		throw error;
 	}
