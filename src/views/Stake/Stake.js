@@ -33,6 +33,12 @@ export const Stake = () => {
 
                         <div className='arrow'>&darr;</div>
 
+                        <select title='bulk'>
+                            <option value="1">3 Months</option>
+                            <option value="2">6 Months</option>
+                            <option value="3">1 Year</option>
+                        </select>
+
                         <div className='info'>
                             <div className='info-item'>
                                 <div>Locktime:</div>

@@ -10,6 +10,7 @@
 	border-bottom: 4px solid #530446;
 	border-left: 4px solid #791462;
 	border-radius: 10px;
+	min-height: 300px;
 
 	img {
 		width: 30%;
@@ -32,7 +33,7 @@
 
 	.content {
 		width: 100%;
-		margin-top: 100px;
+		margin-top: 10px;
 	}
 
 	.info-content {
@@ -73,6 +74,10 @@
 	border-bottom: 4px solid hsl(151, 100%, 7%);
 	border-left: 4px solid #004b2a;
 
+	img{
+		width: 80%;
+	}
+
 	.info-content > div:nth-child(2) {
 		color: #16ff83;
 	}
@@ -83,10 +88,15 @@
 }
 
 .nft-land {
-	border-top: 8px solid #07e1e8;
-	border-right: 6px solid #00515f;
-	border-bottom: 4px solid #001e42;
-	border-left: 4px solid #006680;
+	border-top: 8px solid #e3b14b;
+	border-right: 6px solid #976400;
+	border-bottom: 4px solid #422e00;
+	border-left: 4px solid #804b00;
+
+	img{
+		width: 80%;
+		height: 200px;
+	}
 
 	.info-content > div:nth-child(2) {
 		color: #07e1e8;

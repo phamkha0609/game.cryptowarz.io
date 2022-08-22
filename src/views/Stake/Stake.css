@@ -135,6 +135,17 @@
     background-color: #ee4460;
 }
 
+.caculate-board > select{
+    width: 50%;
+    margin: 10px 0 0 0;
+    background-color: transparent;
+    border-radius: 5px;
+}
+
+.caculate-board > select option {
+    background: rgba(0, 0, 0, 0.9);
+}
+
 @media screen and (max-width: 426px) {
     .input-board{
         min-width: 300px;
