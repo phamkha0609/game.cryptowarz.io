@@ -113,7 +113,8 @@ export const MarketPlace = () => {
 		} catch (error: any) {
 			if (
 				/insufficient allowance/gi.test(error.message) ||
-				/transfer amount exceeds balance/gi.test(error.data.message)
+				/transfer amount exceeds allowance/gi.test(error.message) ||
+				/transfer amount exceeds allowance/gi.test(error.data?.message)
 			) {
 				try {
 					await approveTokenSale(library, account);
@@ -122,10 +123,9 @@ export const MarketPlace = () => {
 					setLoading(false);
 				}
 			} else {
-				error.data.message
-					? alert(error.data.message)
-					: error.message && alert(error.message);
 				setLoading(false);
+				if (error.data?.message) alert(error.data.message);
+				else if (error.message) alert(error.message);
 			}
 		}
 	};
