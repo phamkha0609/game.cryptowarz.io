@@ -101,7 +101,15 @@ export const buyBox = async (
 	boxId: number
 ) => {
 	try {
+		const tokenSaleContract = getTokenSaleContract(library, account);
+		const allowance = await callContract(tokenSaleContract, "allowance", [
+			account,
+			BOX_SALE,
+		]);
 		const boxSaleContract = getBoxSaleContract(library, account);
+		const tokenFee = await callContract(boxSaleContract, "getTokenFee", []);
+		if (allowance.lt(tokenFee))
+			await callContract(tokenSaleContract, "approve", [BOX_SALE, MAX_UINT256]);
 		return callContract(boxSaleContract, "buyBox", [boxId]);
 	} catch (error) {
 		throw error;

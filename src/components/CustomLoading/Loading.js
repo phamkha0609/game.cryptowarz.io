@@ -1,15 +1,13 @@
-import React from 'react'
-import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import React from "react";
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 
-function Load({isShow}) {
-    if(isShow){
-        Loading.standard();
-    }else{
-        Loading.remove();
-    }
-    return (
-        <div>Loading</div>
-    )
+function Load({ isShow }) {
+	if (isShow) {
+		Loading.standard();
+	} else {
+		Loading.remove();
+	}
+	return null;
 }
 
-export default Load
+export default Load;
