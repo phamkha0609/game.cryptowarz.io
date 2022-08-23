@@ -6,7 +6,9 @@ import {
 	GAME_ADDRESS,
 	KING_NFT,
 	LAND_NFT,
+	STAKING_REWARDS,
 	TOKEN_SALE,
+	TOKEN_STAKING,
 } from "../configs/constants";
 import GameABI from "../abis/Game.json";
 import { Web3Provider } from "@ethersproject/providers";
@@ -14,6 +16,7 @@ import { BigNumber } from "ethers";
 import BoxSaleABI from "../abis/BoxSale.json";
 import IERC20ABI from "../abis/IERC20.json";
 import IERC721ABI from "../abis/IERC721.json";
+import StakingRewardABI from "../abis/StakingRewards.json";
 
 // returns the checksummed address if the address is valid, otherwise returns false
 export function isAddress(value: string) {
@@ -111,4 +114,18 @@ export function getKingNFT(
 	account: string | undefined = undefined
 ): Contract {
 	return getContract(KING_NFT, IERC721ABI, library, account);
+}
+
+export function getTokenStakingContract(
+	library: Web3Provider,
+	account: string | undefined = undefined
+): Contract {
+	return getContract(TOKEN_STAKING, IERC20ABI, library, account);
+}
+
+export function getStakingRewardContract(
+	library: Web3Provider,
+	account: string | undefined = undefined
+): Contract {
+	return getContract(STAKING_REWARDS, StakingRewardABI, library, account);
 }

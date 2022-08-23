@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@craco/craco": "^6.4.3",
     "@emailjs/browser": "^3.6.2",
     "@ethersproject/contracts": "^5.6.0",
@@ -19,6 +20,7 @@
     "craco-less": "^2.0.0",
     "emailjs": "^4.0.0",
     "ethers": "^5.6.1",
+    "graphql": "^16.6.0",
     "lodash": "^4.17.21",
     "mobx": "^6.3.13",
     "mobx-persist-store": "^1.0.4",

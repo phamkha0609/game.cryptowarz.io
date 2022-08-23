@@ -1,0 +1,86 @@
+.modal-wrap{
+    background:rgba(6, 1, 37, 0.789);
+    position:absolute;
+    top:0px;
+    right:0px;
+    bottom:0px;
+    left:0px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .content{
+        background-color: #333;
+        box-shadow: 0 0 2px #aaaddd;
+        width: 100%;
+        max-width: 900px;
+        border-radius: 4px;
+
+        button{
+            background-color: #aa003e;
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            top: 10px;
+            right: 10px;
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        button:hover{
+            background-color: rgb(105, 105, 105);
+        }
+    }
+
+    .history-item{
+        font-family: 'Courier New', Courier, monospace;
+        display: flex;
+        justify-content: space-between;
+        border-bottom: 1px solid #aaaddd;
+        padding: 8px;
+        cursor: pointer;
+
+        .col-element{
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            
+            div{
+                color: #6775f7;
+            }
+
+            small{
+                color: rgb(210, 210, 210);
+            }
+
+            .btn-claim-stake{
+                background-color: #aa003e;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-weight: normal;
+            }
+
+            .btn-claim-stake-disable{
+                background-color: #9b9b9b;
+                cursor: not-allowed;
+                color: white;
+                border: none;
+                padding: 5px 10px;
+                border-radius: 4px;
+                font-weight: normal;
+            }
+
+            .btn-claim-stake:hover{
+                background-color: #b72057;
+            }
+        }
+    }
+}
