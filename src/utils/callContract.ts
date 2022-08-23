@@ -242,11 +242,11 @@ export const staking = async (
 export const claim = async (
 	library: Web3Provider,
 	account: string,
-	stakeId: number
+	id: number
 ) => {
 	try {
 		const stakingContract = getStakingRewardContract(library, account);
-		return callContract(stakingContract, "stake", [stakeId]);
+		return callContract(stakingContract, "claim", [id]);
 	} catch (error) {
 		throw error;
 	}

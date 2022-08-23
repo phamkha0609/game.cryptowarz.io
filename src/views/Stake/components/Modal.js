@@ -1,44 +1,33 @@
-import React from 'react'
+import React from "react";
 import "./Modal.scss";
-import HistoryItem from './HistoryItem';
+import HistoryItem from "./HistoryItem";
 
-function Modal({ isShow, stateChager }) {
-    const items = [
-        {
-            earned: 1000,
-            totalStaked: 3000,
-            apy: 17.5,
-            endsIn: 1000000
-        },
-        {
-            earned: 1000,
-            totalStaked: 3000,
-            apy: 17.5,
-            endsIn: 1000000
-        },
-        {
-            earned: 1000,
-            totalStaked: 3000,
-            apy: 17.5,
-            endsIn: 1200000
-        },
-    ]
+function Modal({ isShow, stateChager, userStakes, setSubmitting, refetch }) {
+	console.log(userStakes);
 
-    return (
-        <>
-            {isShow ?
-                <div className="modal-wrap">
-                    <div className="content">
-                        <button onClick={() => stateChager(false)}>X</button>
-                        {items.map(e => {
-                            return <HistoryItem data={e} />
-                        })}
-                    </div>
-                </div> :
-                <></>
-            }
-        </>
-    )
+	return (
+		<>
+			{isShow ? (
+				<div className="modal-wrap">
+					<div className="content">
+						<button onClick={() => stateChager(false)}>X</button>
+						{userStakes.map((e, idx) => {
+							return (
+								<HistoryItem
+									key={idx}
+									stake={e}
+									setSubmitting={setSubmitting}
+									refetch={refetch}
+								/>
+							);
+						})}
+					</div>
+				</div>
+			) : (
+				<></>
+			)}
+		</>
+	);
 }
 
-export default Modal
+export default Modal;

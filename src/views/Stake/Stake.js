@@ -71,10 +71,11 @@ export const Stake = () => {
 
 	const handleStake = async (stakeId) => {
 		if (!account || !library) return alert("Connect wallet");
-		if (!amount || isNaN(account)) return alert("Enter valid amount");
+		if (!amount || isNaN(amount)) return alert("Enter valid amount");
 		try {
 			setSubmitting(true);
 			await staking(library, account, stakeId, amount);
+			refetch();
 			alert("Staking success");
 			setSubmitting(false);
 		} catch (error) {
@@ -111,13 +112,19 @@ export const Stake = () => {
 							</button>
 						</div>
 
-						<Modal isShow={show} stateChager={setShow} />
+						<Modal
+							isShow={show}
+							stateChager={setShow}
+							userStakes={data?.userStakes}
+							setSubmitting={setSubmitting}
+							refetch={refetch}
+						/>
 
 						<div className="balance">
 							<div>Balance: </div>
 							<div>
 								{balance
-									? parseFloat(formatEther(balance.toString())).toFixed(2)
+									? parseFloat(formatEther(balance.toString())).toFixed(4)
 									: "--"}{" "}
 								WARZ
 							</div>
