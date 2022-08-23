@@ -11,6 +11,7 @@ import {
 	NFTs,
 	NFT_IDS,
 	PRE_SALE_METHODS,
+	STAKING_REWARDS,
 	ZERO_BN,
 } from "../configs/constants";
 import {
@@ -19,10 +20,13 @@ import {
 	getGameContract,
 	getKingNFT,
 	getLandNFT,
+	getStakingRewardContract,
 	getTokenSaleContract,
+	getTokenStakingContract,
 } from "./getContract";
 import b1 from "../../assets/img/box/box-1.png";
 import b2 from "../../assets/img/box/box-2.png";
+import { parseEther } from "ethers/lib/utils";
 
 export const buyNFT = async (
 	library: Web3Provider,
@@ -203,6 +207,58 @@ export const getBoxSales = async (library: Web3Provider) => {
 			{ ...landBox, tokenFee },
 			{ ...kingBox, tokenFee },
 		];
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const staking = async (
+	library: Web3Provider,
+	account: string,
+	stakeId: number,
+	amount: string
+) => {
+	try {
+		if (isNaN(+amount)) return;
+		const _amount = parseEther(amount);
+		const tokenStaking = getTokenStakingContract(library, account);
+		const allowance = await callContract(tokenStaking, "allowance", [
+			account,
+			STAKING_REWARDS,
+		]);
+		if (allowance.lt(BigNumber.from(_amount)))
+			await callContract(tokenStaking, "approve", [
+				STAKING_REWARDS,
+				MAX_UINT256,
+			]);
+
+		const stakingContract = getStakingRewardContract(library, account);
+		return callContract(stakingContract, "stake", [stakeId, _amount]);
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const claim = async (
+	library: Web3Provider,
+	account: string,
+	stakeId: number
+) => {
+	try {
+		const stakingContract = getStakingRewardContract(library, account);
+		return callContract(stakingContract, "stake", [stakeId]);
+	} catch (error) {
+		throw error;
+	}
+};
+
+export const getTokenBalance = async (
+	library: Web3Provider,
+	account: string
+) => {
+	try {
+		const tokenSaleContract = getTokenStakingContract(library);
+		return callContract(tokenSaleContract, "balanceOf", [account]);
 	} catch (error) {
 		throw error;
 	}
