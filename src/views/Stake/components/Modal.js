@@ -3,21 +3,24 @@ import "./Modal.scss";
 import HistoryItem from './HistoryItem';
 
 function Modal({ isShow, stateChager }) {
-    const item = [
+    const items = [
         {
-            time: '30/09/2022',
-            earned: 3000,
-            option: '3 months'
+            earned: 1000,
+            totalStaked: 3000,
+            apy: 17.5,
+            endsIn: 1000000
         },
         {
-            time: '01/10/2022',
-            earned: 900,
-            option: '6 months'
+            earned: 1000,
+            totalStaked: 3000,
+            apy: 17.5,
+            endsIn: 1000000
         },
         {
-            time: '02/10/2022',
-            earned: 1500,
-            option: '1 year'
+            earned: 1000,
+            totalStaked: 3000,
+            apy: 17.5,
+            endsIn: 1200000
         },
     ]
 
@@ -27,7 +30,9 @@ function Modal({ isShow, stateChager }) {
                 <div className="modal-wrap">
                     <div className="content">
                         <button onClick={() => stateChager(false)}>X</button>
-                        <HistoryItem items={item} />
+                        {items.map(e => {
+                            return <HistoryItem data={e} />
+                        })}
                     </div>
                 </div> :
                 <></>
