@@ -1,8 +1,16 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Stake.css'
 import logo from "../../assets/img/logo.png";
+import history from "../../assets/img/history.svg";
+import Modal from "./components/Modal";
 
 export const Stake = () => {
+    const [show, setShow] = useState(false);
+
+    const showHistory = () => {
+        setShow(true);
+    }
+
     return (
         <div className='contaner stake-wrap'>
             <h1 className='title'>STAKE $WARZ TO EARN REWARDS</h1>
@@ -16,6 +24,14 @@ export const Stake = () => {
                                 STAKING CALCULATE
                             </h3>
                         </div>
+
+                        <div className='history'>
+                            <button style={{backgroundColor: 'transparent', border: 'none'}} onClick={() => showHistory()}>
+                                <img src={history} alt="history" width={30} style={{cursor: "pointer"}}/>
+                            </button>
+                        </div>
+
+                        <Modal isShow={show} stateChager={setShow}/>
 
                         <div className='balance'>
                             <div>Stake amount</div>
