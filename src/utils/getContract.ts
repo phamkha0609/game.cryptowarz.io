@@ -8,7 +8,6 @@ import {
 	LAND_NFT,
 	STAKING_REWARDS,
 	TOKEN_SALE,
-	TOKEN_STAKING,
 } from "../configs/constants";
 import GameABI from "../abis/Game.json";
 import { Web3Provider } from "@ethersproject/providers";
@@ -114,13 +113,6 @@ export function getKingNFT(
 	account: string | undefined = undefined
 ): Contract {
 	return getContract(KING_NFT, IERC721ABI, library, account);
-}
-
-export function getTokenStakingContract(
-	library: Web3Provider,
-	account: string | undefined = undefined
-): Contract {
-	return getContract(TOKEN_STAKING, IERC20ABI, library, account);
 }
 
 export function getStakingRewardContract(
