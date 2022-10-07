@@ -3,16 +3,18 @@ import { BigNumber } from "ethers";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./cardStyle.scss";
-import b1 from "../../assets/img/box/box-1.png";
+import b1 from "../../assets/img/bd1.png";
 import b2 from "../../assets/img/box/box-2.png";
 import { formatEther, parseEther } from "ethers/lib/utils";
 
 export const CardComponent = ({
 	id,
+	title,
 	box,
 	handleClick,
 }: {
 	id: number;
+	title: string,
 	box: any;
 	handleClick: (id: number) => any;
 }) => {
@@ -22,8 +24,8 @@ export const CardComponent = ({
 		// <Link to={`/detail/${id ?? 1}`}>
 		<Link to={``}>
 			<div className="card-custom">
-				<img src={id == 0 ? b1 : b2} alt="image" />
-				<h4 className="title">{BOX_NAMES[id]}</h4>
+				<img src={id === 0 ? b1 : b2} alt="img" />
+				<h4 className="title">{title}</h4>
 				<div className="content">
 					<div className="info-content">
 						<div>Price;</div>
@@ -36,11 +38,11 @@ export const CardComponent = ({
 					</div>
 					<div className="info-content">
 						<div>Created</div>
-						<div>{box.created.toString()}</div>
+						{/* <div>{box.created.toString()}</div> */}
 					</div>
 					<div className="info-content">
 						<div>Limit</div>
-						<div>{box.limit.toString()}</div>
+						{/* <div>{box.limit.toString()}</div> */}
 					</div>
 					<div className="info-content">
 						<div>Payment</div>

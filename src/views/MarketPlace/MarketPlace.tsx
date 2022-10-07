@@ -22,6 +22,12 @@ import bd2 from "../../assets/img/bd2.png";
 import bd3 from "../../assets/img/bd3.png";
 
 const TAB = ["box", "hero"];
+const boxList: any[] = [
+	{
+		id: 0,
+		title: 'bulldog nft box'
+	}
+]
 const lands: any[] = [
 	{	
 		id: "1",
@@ -49,7 +55,7 @@ export const MarketPlace = () => {
 	const [isShow, setShow] = useState(false);
 	const [isLoading, setLoading] = useState(true);
 	const [reward, setReward] = useState<any>();
-	const [boxList, setBoxList] = useState<any[]>([]);
+	// const [boxList, setBoxList] = useState<any[]>([]);
 
 	const [refresh, setRefresh] = useState(false);
 
@@ -71,8 +77,8 @@ export const MarketPlace = () => {
 				const res = await _getOwnNFTs(library, account);
 				// setLands(res.lands);
 				setKings(res.kings);
-				const boxList = await getBoxSales(library);
-				setBoxList(boxList);
+				// const boxList = await getBoxSales(library);
+				// setBoxList(boxList);
 				setLoading(false);
 			} catch (error) {
 				console.log(error);
@@ -131,7 +137,7 @@ export const MarketPlace = () => {
 							<Row gutter={[24, 24]}>
 								{boxList.map((e, id) => (
 									<Col key={id} xl={8} xs={12}>
-										<CardComponent id={id} box={e} handleClick={handleBuyBox} />
+										<CardComponent id={id} box={e} title={e.title} handleClick={handleBuyBox} />
 									</Col>
 								))}
 							</Row>
