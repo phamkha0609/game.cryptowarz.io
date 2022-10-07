@@ -17,8 +17,28 @@ import hero from "../../assets/img/tmp/wood.png";
 import Loading from "../../components/CustomLoading/Loading";
 import Modal from "../../components/CustomModal/Modal";
 import "./marketPlace.scss";
+import bd1 from "../../assets/img/bd1.png";
+import bd2 from "../../assets/img/bd2.png";
+import bd3 from "../../assets/img/bd3.png";
 
 const TAB = ["box", "hero"];
+const lands: any[] = [
+	{	
+		id: "1",
+		url: bd1,
+		title: "bulldog 1"
+	},
+	{
+		id: "2",
+		url: bd2,
+		title: "bulldog 2"
+	},
+	{
+		id: "3",
+		url: bd3,
+		title: "bulldog 3"
+	},
+];
 
 export const MarketPlace = () => {
 	const [visible, setVisible] = useState(false);
@@ -34,7 +54,7 @@ export const MarketPlace = () => {
 	const [refresh, setRefresh] = useState(false);
 
 	const [currentTab, setCurrentTab] = useState<string>("box");
-	const [lands, setLands] = useState<any[]>([]);
+	// const [lands, setLands] = useState<any[]>([]);
 	const [kings, setKings] = useState<any[]>([]);
 
 	useEffect(() => {
@@ -49,7 +69,7 @@ export const MarketPlace = () => {
 			}
 			try {
 				const res = await _getOwnNFTs(library, account);
-				setLands(res.lands);
+				// setLands(res.lands);
 				setKings(res.kings);
 				const boxList = await getBoxSales(library);
 				setBoxList(boxList);
@@ -116,7 +136,7 @@ export const MarketPlace = () => {
 								))}
 							</Row>
 						</Tabs.TabPane>
-						<Tabs.TabPane tab="LAND" key="land">
+						<Tabs.TabPane tab="BULLDOG NFT" key="land">
 							<div className="mobile">
 								<Space
 									style={{
@@ -130,25 +150,6 @@ export const MarketPlace = () => {
 								{lands.map((e, id) => (
 									<Col key={id} xl={6} xs={12}>
 										<LandComponent land={e} />
-									</Col>
-								))}
-							</Row>
-						</Tabs.TabPane>
-
-						<Tabs.TabPane tab="KING KETHER" key="kether">
-							<div className="mobile">
-								<Space
-									style={{
-										width: "100%",
-										justifyContent: "flex-end",
-										marginBottom: "1em",
-									}}
-								></Space>
-							</div>
-							<Row gutter={[24, 24]}>
-								{kings.map((e, id) => (
-									<Col key={id} xl={6} xs={12}>
-										<HeroComponent king={e} />
 									</Col>
 								))}
 							</Row>

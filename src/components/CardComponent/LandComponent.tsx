@@ -9,9 +9,9 @@ export const LandComponent = ({ land }: { land: any }) => {
 		// <Link to={`/detail/${id ?? 1}`}>
 		<Link to={``}>
 			<div className="card-custom nft-land">
-				<img src={land.url} alt="image" />
+				<img src={land.url} alt="img" />
 				<h4 className="land_id">ID: {land.id.toString()}</h4>
-				<h4 className="title">{LAND_TYPES[land.nftClass]}</h4>
+				<h4 className="title">{land.title}</h4>
 				{/* <div className="content">
 					<div className="info-content">
 						<div>Price</div>
