@@ -29,8 +29,12 @@ export const KING_NFT = process.env.REACT_APP_KING_NFT;
 export const BOX_SALE = process.env.REACT_APP_BOX_SALE;
 export const TOKEN_SALE = process.env.REACT_APP_TOKEN_SALE;
 
-if (!process.env.REACT_APP_STAKING_REWARDS)
+if (
+	!process.env.REACT_APP_TOKEN_STAKING ||
+	!process.env.REACT_APP_STAKING_REWARDS
+)
 	throw new Error("Staking contract addresses is not configured");
+export const TOKEN_STAKING = process.env.REACT_APP_TOKEN_STAKING;
 export const STAKING_REWARDS = process.env.REACT_APP_STAKING_REWARDS;
 
 if (!process.env.REACT_APP_STAKING_REWARDS_SUBGRAPHS)

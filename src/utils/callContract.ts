@@ -22,6 +22,7 @@ import {
 	getLandNFT,
 	getStakingRewardContract,
 	getTokenSaleContract,
+	getTokenStakingContract,
 } from "./getContract";
 import b1 from "../../assets/img/box/box-1.png";
 import b2 from "../../assets/img/box/box-2.png";
@@ -220,7 +221,7 @@ export const staking = async (
 	try {
 		if (isNaN(+amount)) return;
 		const _amount = parseEther(amount);
-		const tokenStaking = getTokenSaleContract(library, account);
+		const tokenStaking = getTokenStakingContract(library, account);
 		const allowance = await callContract(tokenStaking, "allowance", [
 			account,
 			STAKING_REWARDS,
@@ -256,7 +257,7 @@ export const getTokenBalance = async (
 	account: string
 ) => {
 	try {
-		const tokenSaleContract = getTokenSaleContract(library);
+		const tokenSaleContract = getTokenStakingContract(library);
 		return callContract(tokenSaleContract, "balanceOf", [account]);
 	} catch (error) {
 		throw error;
