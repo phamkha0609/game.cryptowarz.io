@@ -3,6 +3,8 @@ import "./Modal.scss";
 import HistoryItem from "./HistoryItem";
 
 function Modal({ isShow, stateChager, userStakes, setSubmitting, refetch }) {
+	console.log(userStakes);
+
 	return (
 		<>
 			{isShow ? (

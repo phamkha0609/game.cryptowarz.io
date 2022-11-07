@@ -74,6 +74,7 @@ export const MarketPlace = () => {
 				return;
 			}
 			try {
+				console.log("1");
 				const res = await _getOwnNFTs(library, account);
 				// setLands(res.lands);
 				setKings(res.kings);
@@ -86,6 +87,8 @@ export const MarketPlace = () => {
 			}
 		})();
 	}, [account, library, refresh]);
+
+	console.log(isLoading);
 
 	const handleBuyBox = async (boxId: number) => {
 		if (!account || !library) return alert("Please connect wallet");
